@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>გეოლოკაციის დადგენა</h1>
+<p>დააწკაპეთ,რომ დადგინდეს გეოლოკაცია</p>
+
+<button onclick="getLocation()">გეოლოკაციის დადგენა</button>
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+    let lat= position.coords.latitude;
+    let lon=position.coords.longitude;
+  x.innerHTML = "გრძედი: " +  lat+
+  "<br>განედი: " +lon ;
+}
+</script>
+
+</body>
+</html>
