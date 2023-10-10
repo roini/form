@@ -1,5 +1,5 @@
-@import url('./fonts.css');
-@import url('./color.css');
+@import url('fonts.css');
+@import url('color.css');
 :root{
   --green:#93A603;
   --blue:#0468BF;
