@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>რეგისტრაცია</title>
+    <link rel="stylesheet" href="css/styles.css">
+   
+</head>
+<body onload="load()">
+	<p id="demo">test</p>
+      <!--მოდალური გვერდი-->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <span style="color:red;">გაფრთხილება!!!</span>
+                <p>
+                  საიტი მონაცემების დაზუსტებისთვის ითხოვს <strong>თქვენი ლოკაციის(ადგილმდებარეობის) დადგენას!!! </strong>
+                  <u style="color:red;">ეს უკანასკნელი კი გვეხმარება,რომ უმოკლეს პერიოდში დაზუსტებით გითხრათ გვაქვს,
+                  თუ არა თქვენს სოფელში/დასახლებაში/ქალაქში/ქუჩაზე დაფარვის ზონა</u> 
+                  თუკი მისამართზე არ იმყოფებით უბრალოდ გათიშეთ ეს ფანჯარა,
+                  ხოლო თუ განაცხადს ავსებთ თქვენი საცხოვრებელი სახლიდან,მაშინ დააწკაპეთ ღილაკს 
+                  <button onclick="getLocation()" id="enableLocate" class="btn-primary">ლოკაციის დადგენა </button>-ს და შემდეგ ზემოთ გამოსულ ფანჯარაში <strong>allow</strong> ღილაკს
+                </p>
+                <img src="./allow.png">
+            </div>
+        </div>
+      <!--მოდალური გვერდი-->
+      <!--საიტის ტანი-->
+    <div class="container body-container">
+        <div class="auth-form-container">
+            <form action="" method="get">
+              <h2>ონლაინ შეკვეთა</h2>
+              <div class="form-group">
+                <label class="text-input-label" for="firstName">სახელი</label>
+                <input class="text-input" type="text" name="firstName" id="firstName" placeholder="შეიყვანეთ თქვენი სახელი">
+              </div>
+              <div class="form-group">
+                <label class="text-input-label" for="lastName">გვარი</label>
+                <input class="text-input" type="text" name="lastName" id="lastName" placeholder="შეიყვანეთ თქვენი გვარი">
+              </div>
+              <div class="form-group">
+                <label class="text-input-label" for="userEmail">მოხმარებლის ელ-ფოსტა</label>
+                <input class="text-input" type="text" name="userEmail" id="userEmail" placeholder="შეიყვანეთ თქვენი ელ-ფოსტა">
+              </div>
+              <div class="form-group">
+              <label class="text-input-label" for="userEmail">მოხმარებლის პირადი N</label>
+              <input class="text-input" type="text" name="userEmail" id="userEmail" placeholder="შეიყვანეთ თქვენი პირადი N">
+              </div>
+              <div class="form-group">
+                <label class="text-input-label" for="Country">დაბადების ადგილი</label>
+                <select class="locations">
+                    <option>საქართველო</option>
+                </select>
+              </div>
+              <div class="form-group">
+              <label class="text-input-label" for="Country">რეგიონები</label>
+              <select class="locations">
+                  <option>აბაშის რაიონი</option>
+                  <option>სენაკის რაიონი</option>
+                  <option>მარტვილის რაიონი</option>
+                  <option>ხონის რაიონო</option>
+                  <option>ახალციხის რაიონი</option>
+                  <option>სამტრედიის რაიონი</option>
+                  <option>ლანჩხუთის რაიონი</option>
+                  <option>ჩოტახაურის რაიონი</option>
+                  <option>წყალტუბოს რაიონი</option>
+              </select>
+              </div>
+              <div class="form-group">
+            <label class="text-input-label" for="Country">ქალაქი/სოფელი</label>
+            <select class="locations">
+                <option>აბაშის</option>
+                <option>სენაკის რაიონი</option>
+                <option>მარტვილის რაიონი</option>
+                <option>ხონის რაიონო</option>
+                <option>ახალციხის რაიონი</option>
+                <option>სამტრედიის რაიონი</option>
+                <option>ლანჩხუთის რაიონი</option>
+                <option>ჩოტახაურის რაიონი</option>
+                <option>წყალტუბოს რაიონი</option>
+            </select>
+              </div>
+              <div class="form-group">
+          <label class="text-input-label" for="userEmail">ქუჩა</label>
+          <input class="text-input" type="text" name="userEmail" id="userEmail" placeholder="შეიყვანეთ თქვენი ქუჩა">
+             </div>
+             <div class="form-group">
+        <label class="text-input-label" for="userEmail">მოხმარებლის თქვენი მობილურის ნომერი</label>
+        <input class="text-input" type="text" name="userEmail" id="userEmail" placeholder="შეიყვანეთ თქვენი პირადი N">
+             </div>
+            <div class="form-group">
+      <label class="text-input-label" for="Country">საიდან გაიგეთ ჩვენს შესახებ</label>
+      <select class="locations">
+          <option>მეგობრისაგან</option>
+          <option>თქვენი თანამშრომლებისაგან</option>
+          <option>თქვენი ვებგვერდიდან</option>
+          <option>სოციალური ქსელებიდან</option>
+      </select>
+            </div>
+            <div class="form-group">
+    <label class="text-input-label" for="Country">აქამდე თუ გისარგებლიათ რომელიმე ინტერნეტ პროვაიდერით?</label>
+    <select class="locations">
+        <option>პირველად ვაყენებ ინტერტეტს</option>
+        <option>დიახ,მქონდა ინტერნეტი,მარამ გადავწყვიტე პროვაიდერის შეცვლა</option>
+        <option>თქვენი ვებგვერდიდან</option>
+        <option>სოციალური ქსელებიდან</option>
+    </select>
+           </div>
+           <div class="form-group">
+              <label class="text-input-label" for="Country">რატომ გადაწყვიტეთ პროვაიდერის შეცვლა?</label>
+              <select class="locations">
+                  <option>ტარიფი გააძვირეს</option>
+                  <option>ინტერნეტის სიჩქარე დაბალია</option>
+                  <option>ხშირია ინტერნეტის წყვეტა</option>
+                  <option>პრობლემებზე რეაგირეხა არ ხდება,ან ხდება დაგვიანებით</option>
+              </select>
+            </div>
+            
+                <button href="index2.html" class="btn btn-primary w-100 mb-15">რეგისტრაცია</button>
+                
+            </form>
+        </div>
+    </div>
+      <!--საიტის ტანი-->
+  <script>
+    // მოდალური გვერდის შემცველობა
+        var modal = document.getElementById("myModal");
+    // როდესაც დავაწვებით span ელემენტს დაიხურება მოდალური გვერდი
+        var span = document.getElementsByClassName("close")[0];
+    // როდესაც წებგვერდის ტანი ჩაიტვირთება ამოვარდება მოდლური გვერდი 
+        function load() { modal.style.display = "block";}
+    // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+  </script>
+  <!--ლოკაციის დადგენის სკრიპტი-->
+  <script>
+    const x = document.getElementById("demo");
+
+    function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+    function showPosition(position) {
+            let lat= position.coords.latitude;
+            let lon=position.coords.longitude;
+            x.innerHTML = "გრძედი: " +  lat+
+            "<br>განედი: " +lon ;
+            modal.style.display = "none";
+    }
+</script>
+<!--ლოკაციის დადგენის სკრიპტი-->
+</body>
+</html>
